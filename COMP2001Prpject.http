@@ -1,0 +1,6 @@
+@COMP2001Prpject_HostAddress = http://localhost:5173
+
+GET {{COMP2001Prpject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
