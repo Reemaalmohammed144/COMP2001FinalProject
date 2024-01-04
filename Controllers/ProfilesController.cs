@@ -117,5 +117,24 @@ namespace COMP2001FinalProject.Controllers
         {
             return _context.Profiles.Any(e => e.UserId == id);
         }
+
+        [HttpGet("GetProfileInfo")]
+        public async Task<ActionResult<Profile>> GetProfileInfo(string profileId)
+        {
+            if (int.TryParse(profileId, out int profileIdInt))
+            {
+                var usser = await _context.Profiles
+                                    .Where(c => c.UserId == profileIdInt)
+                                    .FirstOrDefaultAsync();
+
+                return usser == null ? NotFound() : usser;
+            }
+            else
+            {
+                return BadRequest("Invalid profileId format");
+            }
+        }
+
+
     }
 }
