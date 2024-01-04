@@ -134,6 +134,30 @@ namespace COMP2001FinalProject.Controllers
                 return BadRequest("Invalid profileId format");
             }
         }
+        // DELETE: api/Profiles/DeleteProfile/5
+        [HttpDelete("DeleteProfile/{id}")]
+        public async Task<IActionResult> DeleteProfilebyid(int id)
+        {
+            var profile = await _context.Profiles.FindAsync(id);
+
+            if (profile == null)
+            {
+                return NotFound();
+            }
+
+            _context.Profiles.Remove(profile);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
+
+            return NoContent();
+        }
 
 
     }
