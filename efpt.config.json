@@ -1,0 +1,73 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "ReemaContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Reena.MSSQL",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[CW1].[AuditLog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[CW1].[FavoriteActivity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[CW1].[Profile]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[CW1].[Spoken_Language]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[CW1].[UserProfileView]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[CW1].[DeleteUserProfile]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[CW1].[InsertUserProfile]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[CW1].[UpdateUserProfile]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "dist-6-505.COMP2001_RAlmugharriq.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
