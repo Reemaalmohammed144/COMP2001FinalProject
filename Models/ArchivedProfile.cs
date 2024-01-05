@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Reena.MSSQL.Models;
 
-public partial class Profile
+public partial class ArchivedProfile
 {
     public int UserId { get; set; }
 

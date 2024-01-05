@@ -13,6 +13,8 @@ public partial class ReemaContext : DbContext
     {
     }
 
+    public virtual DbSet<ArchivedProfile> ArchivedProfiles { get; set; }
+
     public virtual DbSet<AuditLog> AuditLogs { get; set; }
 
     public virtual DbSet<FavoriteActivity> FavoriteActivities { get; set; }
@@ -25,6 +27,41 @@ public partial class ReemaContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<ArchivedProfile>(entity =>
+        {
+            entity.HasKey(e => e.UserId).HasName("PK__Archived__1788CCACC33E8139");
+
+            entity.ToTable("ArchivedProfile", "CW1");
+
+            entity.Property(e => e.UserId)
+                .ValueGeneratedNever()
+                .HasColumnName("UserID");
+            entity.Property(e => e.AboutMe)
+                .HasColumnType("text")
+                .HasColumnName("About_Me");
+            entity.Property(e => e.AccessToken).IsUnicode(false);
+            entity.Property(e => e.Birthday)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.FirstName)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("First_Name");
+            entity.Property(e => e.LastName)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("Last_Name");
+            entity.Property(e => e.Password)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.UserName)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+        });
+
         modelBuilder.Entity<AuditLog>(entity =>
         {
             entity.HasKey(e => e.LogId).HasName("PK__AuditLog__5E5499A807BB5D8A");
@@ -77,6 +114,10 @@ public partial class ReemaContext : DbContext
             entity.Property(e => e.AboutMe)
                 .HasColumnType("text")
                 .HasColumnName("About_Me");
+            entity.Property(e => e.AccessToken).IsUnicode(false);
+            entity.Property(e => e.Birthday)
+                .HasMaxLength(50)
+                .IsUnicode(false);
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .IsUnicode(false);

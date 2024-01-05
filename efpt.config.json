@@ -16,6 +16,10 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[CW1].[ArchivedProfile]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[CW1].[AuditLog]",
          "ObjectType": 0
       },
