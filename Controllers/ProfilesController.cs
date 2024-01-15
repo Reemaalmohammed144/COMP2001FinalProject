@@ -106,6 +106,7 @@ namespace COMP2001FinalProject.Controllers
             // Check if a profile with the given access token exists in the database
             var profileCheck = await _context.Profiles.FirstOrDefaultAsync(p => p.AccessToken == accessToken);
 
+
             if (profileCheck == null)
             {
                 // If no profile has the provided access token, return Unauthorized
@@ -129,14 +130,15 @@ namespace COMP2001FinalProject.Controllers
         {
             // Find the existing profile in the database based on the ID
             var existingProfile = await _context.Profiles.FirstOrDefaultAsync(p => p.UserId == id);
-
+            var profileCheck = await _context.Profiles.FirstOrDefaultAsync(p => p.AccessToken == accessToken);
             if (existingProfile == null)
             {
                 return NotFound();
             }
 
             // Check if the provided access token matches the access token of the existing profile
-            if (existingProfile.AccessToken != accessToken)
+
+            if (profileCheck == null || profileCheck.AccessToken != accessToken)
             {
                 return StatusCode(401, "Unauthorized: Invalid access token");
             }
@@ -264,7 +266,7 @@ namespace COMP2001FinalProject.Controllers
         private string GenerateJwtToken(int userId, string userEmail)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("your-secret-key"); // Replace with your secret key
+            var key = Encoding.ASCII.GetBytes("your-secret-key"); 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]

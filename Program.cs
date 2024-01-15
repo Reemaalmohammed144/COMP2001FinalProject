@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Reena.MSSQL.Models;
 
@@ -19,12 +20,16 @@ builder.Services.AddDbContext<ReemaContext>(
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint($"./v1/swagger.json", "SapWeb v1");
+    c.RoutePrefix = "swagger";
+});
+
+var options = new RewriteOptions()
+    .AddRewrite("^default.htm$", "redirect.html", skipRemainingRules: true);
+app.UseRewriter(options);
 
 app.UseHttpsRedirection();
 
